@@ -1,0 +1,23 @@
+{
+  "name": "Equipo10_Ciclo3_MisionTic_UDEA",
+  "version": "1.0.0",
+  "description": "Repositorio Equipo 10 - Ciclo 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joavegaco/Equipo10_Ciclo3_MisionTic_UDEA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joavegaco/Equipo10_Ciclo3_MisionTic_UDEA/issues"
+  },
+  "homepage": "https://github.com/joavegaco/Equipo10_Ciclo3_MisionTic_UDEA#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.1"
+  }
+}
