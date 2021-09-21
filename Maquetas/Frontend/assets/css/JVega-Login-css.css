@@ -1,137 +1,108 @@
-@import url("https://rsms.me/inter/inter-ui.css");
-::selection {
-  background: #2d2f36;
-}
-::-webkit-selection {
-  background: #2d2f36;
-}
-::-moz-selection {
-  background: #2d2f36;
-}
+/**
+ * 01/28/2016
+ * This pen is years old, and watching at the code after all
+ * those years made me fall from my chair, so I:
+ * - changed all IDs to classes
+ * - converted all units to pixels and em units
+ * - changed all global elements to classes or children of
+ *   .login
+ * - cleaned the syntax to be more consistent
+ * - added a lot of spaces that I so hard tried to avoid
+ *   a few years ago
+ *   (because it's cool to not use them)
+ * - and probably something else that I can't remember anymore
+ *
+ * I sticked to the same philosophy, meaning:
+ * - the design is almost the same
+ * - only pure HTML and CSS
+ * - no frameworks, preprocessors or resets
+ */
+
+/* 'Open Sans' font from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 body {
-  background: white;
-  font-family: "Inter UI", sans-serif;
-  margin: 0;
-  padding: 20px;
+  background: rgb(117 120 123);
+  font-family: 'Open Sans', sans-serif;
 }
-.page {
-  background: #e2e2e5;
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 40px);
-  position: absolute;
-  place-content: center;
-  width: calc(100% - 40px);
-}
-@media (max-width: 767px) {
-  .page {
-    height: auto;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  }
-}
-.container {
-  display: block;
-  height: 320px;
-  margin: 0 auto;
-  width: 640px;
-  place-content: center;
-}
-@media (max-width: 767px) {
-  .container {
-    flex-direction: column;
-    height: 630px;
-    width: 320px;
-  }
-}
-.left {
-  background: rgb(0, 0, 0);
-  height: calc(100% - 40px);
-  position: relative;
-  height: 25%;
-  width: 75% ;
-}
-@media (max-width: 767px) {
-  .left {
-    height: 100%;
-    left: 20px;
-    width: calc(100% - 40px);
-    max-height: 270px;
-  }
-}
+
 .login {
-  font-size: 50px;
-  font-weight: 900;
-  margin: 50px 40px 40px;
-  place-content: center;
-  color:rgb(255, 255, 255);
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  position: relative;
+  
+
 }
-.eula {
-  color: #999;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 40px;
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin:auto;
+  
 }
-.right {
-  background: #0e31e4;
-  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
-  color: #f1f1f2;
-  position: relative;
-  width: 50%;
-}
-@media (max-width: 767px) {
-  .right {
-    flex-shrink: 0;
-    height: 75%;
-    width: 50%;
-    max-height: 640px;
-  }
-}
-svg {
-  position: relative;
-  width: 320px;
-}
-path {
-  fill: none;
-  stroke: url(#linearGradient);
-  stroke-width: 4;
-  stroke-dasharray: 240 1386;
-}
-.form {
-  margin: 40px;
-  position: absolute;
-}
-label {
-  color: #c2c2c5;
-  display: block;
-  font-size: 14px;
-  height: 16px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-input {
-  background: transparent;
-  border: 0;
-  color: #f2f2f2;
-  font-size: 20px;
-  height: 30px;
-  line-height: 30px;
-  outline: none !important;
+
+
+.login-header {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
   width: 100%;
 }
-input::-moz-focus-inner {
-  border: 0;
+
+.login-container {
+  background: #888888;
+  padding: 12px;
 }
-#submit {
-  color: #707075;
-  margin-top: 40px;
-  transition: color 300ms;
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
 }
-#submit:focus {
-  color: #f2f2f2;
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 50%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+
 }
-#submit:active {
-  color: #d0d0d2;
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+  height: 20px;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: rgb(70, 70, 70);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
 }
