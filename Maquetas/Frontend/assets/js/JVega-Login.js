@@ -1,4 +1,4 @@
-var current = null;
+let current = null;
 document.querySelector('#email').addEventListener('focus', function(e) {
   if (current) current.pause();
   current = anime({
@@ -47,3 +47,6 @@ document.querySelector('#submit').addEventListener('focus', function(e) {
     }
   });
 });
+
+
+
