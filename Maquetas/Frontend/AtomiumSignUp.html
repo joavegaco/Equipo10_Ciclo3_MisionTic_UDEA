@@ -18,42 +18,44 @@
     <img src="assets\img\LogoAtomiumLogotipoBlanco.svg" height="60" class="center">
   </nav>
 
-    <!--Cierra navbar-->
-
-    <!--Inicia grid; segunda fila-->
-    <!--Primera columna: Presentación empresa-->
-    <!--Segunda columna: Login-->
-    <!--Tercera columna: Imagen transparente-->
-  <div class="mt-5">
+  <div class="mt-5 mb-3">
     <div class="container-fluid">  
       <div class="row row-cols-3">
         <div class="col">
-          <P>Atomium es una empresa...</P>
+          <P style="width:100%">Atomium es una empresa...</P>
         </div>
         
         <div class="col">
           <!--Arranca login-->
-          <div class="login"> 
+          <div class="login" style="width:150%; margin:auto"> 
             <h2 class="login-header">Registro</h2>
             <div class="form-row">
               <form class="login-container">
                 <div class="form-group">
                     <label for="inputEmail4">Email</label>
-                    <input type="texto" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input type="texto" placeholder="Email">
                     <label for="inputPassword4">Contraseña</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Nombre</label>
+                  <input type="texto" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Identificación</label>
+                  <input type="texto"  placeholder="1234 Main St">
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Dirección domicilio</label>
-                  <input type="texto" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  <input type="texto"  placeholder="1234 Main St">
                 </div>
                 <div class="form-group">
                   <label for="inputAddress2">Ciudad</label>
-                  <input type="texto" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  <input type="texto" placeholder="Apartment, studio, or floor">
                 </div>
                 <div class="form-group">
                   <label for="inputCity">Teléfono celular</label>
-                  <input type="texto" class="form-control" id="inputCity">
+                  <input type="texto">
                 </div>
                 <div class="form-row">
                 <div class="form-group col-md-4">
@@ -65,29 +67,29 @@
                 </div>
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" style="width: 12px;
+                    height: 12px;">
+                    <label class="form-check-label" for="gridCheck" style="height: 12px;">
                       Check me out
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
+                </div>  
+                <p> <input type="submit" value="Registrarse en Atomium" style="width: 75%;"> </p>
               </form>  
             </div>          
           </div>
           <!--Cierra columna-->
         </div>
-        
+      </div>
         <!--Abre columna logo-->
         <div class="col" style="background-image: url('assets/img/ImagologoAtomiumTransparente-01.png');background-repeat: no-repeat;transform:rotate(270deg)"></div>
         <!--Cierra columna logo-->
       </div>
     </div>
   </div>
-
+  
   <!--Empieza footer-->
-  <footer class="text-center text-white" style="position:absolute; bottom:0%; width:100%;
-  font-family:Avenir;background-color:#4d4d4d">
+  <footer class="text-center text-white mt-3">
     <!-- Grid container -->
     <div class="container p-4">
       <!--Grid row-->

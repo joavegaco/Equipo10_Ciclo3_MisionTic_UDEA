@@ -21,13 +21,27 @@
 /* 'Open Sans' font from Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
+
 body {
-  background: rgb(117 120 123);
-  font-family: 'Open Sans', sans-serif;
+  background: rgb(117 120 123);display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  background-color: #efefef;
+  flex: 0 0 50px;/*or just height:50px;*/
+  margin-top: auto;
+  position:fixed; bottom:0;width:100%;
+  font-family:Avenir;background-color:#4d4d4d;
+  flex-shrink: 0;
+  
 }
 
 .login {
-  width: 400px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 33%;
   margin: 8px auto;
   font-size: 16px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -89,7 +103,7 @@ body {
 }
 
 /* Text fields' focus effect */
-.login input[type="texto"]:focus,
+.login input[type="email"]:focus,
 .login input[type="password"]:focus {
   border-color: transparent;
 }
@@ -128,3 +142,4 @@ body {
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
+
