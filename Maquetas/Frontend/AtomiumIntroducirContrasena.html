@@ -10,13 +10,34 @@
 </head>
 <body>
     <!-- Just an image -->
-  <nav class="navbar navbar-dark bg-dark" style="box-shadow: 10px 10px 8px #4d4d4d">
-    <a class="navbar-brand" href="#" style="font-size: 20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-      <img src="assets\img\LogoAtomium-Blanco.svg"  height="75" alt="">
-      RESTAURACIÓN DE CONTRASEÑA
-    </a>
-    <img src="assets\img\LogoAtomiumLogotipoBlanco.svg" height="60" class="center">
-  </nav>
+  <div class="card text-start bg-secondary">
+      
+        <div class="card-header bg-dark">
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+              
+                <div class="col-12 col-6 col-xl-4">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                      <img src="assets/img/LogoAtomiumBlanco.png" alt="" height="75">
+                      INICIO DE SESIÓN
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-6 col-xl-4">
+                  <div class="container-fluid">
+                      <img src="assets\img\LogoAtomiumLogotipoBlanco.svg"  width="100%">
+                  </div>
+                </div>
+                <div class="col-6 col-xl-4">
+                  <div class="container-fluid">
+                      
+                  </div>
+                </div>
+              </div>
+            </div>
+              </nav>
+        </div>
+    </div>
 
     <!--Cierra navbar-->
 
@@ -24,14 +45,15 @@
     <!--Primera columna: Presentación empresa-->
     <!--Segunda columna: Login-->
     <!--Tercera columna: Imagen transparente-->
+  <div class="card-body text-white bg-secondary">
   <div class="mt-5">
     <div class="container-fluid">  
       <div class="row row-cols-3">
-        <div class="col">
+        <div class="col-6 col-xl-4">
           <P style="width:100%">Atomium es una empresa...</P>
         </div>
         
-        <div class="col">
+        <div class="col-6 col-xl-4">
           <!--Arranca login-->
 
           <div class="login">
@@ -56,45 +78,32 @@
         </div>
         
         <!--Abre columna logo-->
-        <div class="col" style="background-image: url('assets/img/ImagologoAtomiumTransparente-01.png');background-repeat: no-repeat;transform:rotate(270deg)"></div>
+        <div class="col-6 col-xl-4" style="background-image: url('assets/img/ImagologoAtomiumTransparente-01.png');background-repeat: no-repeat;"></div>
         <!--Cierra columna logo-->
       </div>
     </div>
   </div>
+  </div>
   
   <!--Empieza footer-->
-  <footer class="footer text-center text-white mt-3">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!--Grid row-->
+  <div class="card-footer text-muted text-white bg-dark">
       <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h6 class="text-uppercase font-weight-bold" style="font-size:10px">Información Adicional</h6>
-          <p style="font-size:10px">Carrera 200 Numero 500 - 20 Piso 1001, Bogotá D.C., Colombia</p>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold">Información Adicional</h6>
+          <p>Carrera 200 Numero 500 - 20 Piso 1001, Bogotá D.C., Colombia</p>
         </div>
-        <!--Grid column-->
-  
-        <!--Grid column-->
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h6 class="text-uppercase font-weight-bold" style="font-size:10px">Contacto</h6>
-          <p style="font-size:10px">Colombia
-          info@atomium.com
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+          <p>Colombia
+          <br/>info@atomium.com<br/>
           + 57 777 888 88
           + 57 888 777 77</p>
         </div>
-        <!--Grid column-->
+        <div>
+        <div class="footer-copyright text-center">© 2021 Copyright: Equipo10</div>
+        </div>
       </div>
-      <!--Grid row-->
     </div>
-    <!-- Grid container -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);position:fixed;bottom:0;width:100%;font-size:10px">
-      Universidad de Antioquia - Ministerio de Tecnologías de la Información y Comunicaciones
-    </div>
-    <!-- Copyright -->
-  </footer>
   <!--Cierra footer-->
 
   <script>src="assets\js\JVega-Login.js"</script>

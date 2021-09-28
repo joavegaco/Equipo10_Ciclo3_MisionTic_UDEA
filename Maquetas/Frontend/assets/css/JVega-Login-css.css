@@ -22,29 +22,32 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
+
 body {
-  background: rgb(117 120 123);display: flex;
+  
   flex-direction: column;
-  min-height: 100vh;
-  margin-bottom: 150px;
+  min-height: 100%;
+  margin: auto;
+  display: flex;
+  
 }
 
 footer {
-  background-color: #efefef;
+  overflow: hidden;
   margin-top: auto;
-  position:fixed; bottom:0;width:100%;
+  position:absolute; bottom:0;width:100%;
   font-family:Avenir;background-color:#4d4d4d;
-  height: 150px;
   
 }
 
 .login {
-  width: 100%;
-  max-width: 600px;
-  min-width: 33%;
-  margin: 8px auto;
+  margin: auto;
   font-size: 16px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
   /*box-shadow: 10px 10px 8px #4d4d4d;*/
 
 }
@@ -134,7 +137,7 @@ footer {
 /*Contenido propio Johan Vega */
 .center {
   display:box;
-  width: 50%;
+  height: 4em;
   position: absolute;
   top: 50%;
   left: 50%;
