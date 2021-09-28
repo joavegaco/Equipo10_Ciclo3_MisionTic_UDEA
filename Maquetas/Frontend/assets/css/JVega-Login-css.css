@@ -22,14 +22,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
-
 body {
   
   flex-direction: column;
-  min-height: 100%;
-  margin: auto;
-  display: flex;
-  
+  display:flex;
+  min-height: 100vh;
+  margin: auto; 
 }
 
 footer {
