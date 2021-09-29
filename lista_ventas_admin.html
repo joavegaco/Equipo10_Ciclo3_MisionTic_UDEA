@@ -1,313 +1,349 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="/assets/js/listaventas.js">
-    <link rel="stylesheet" href="/assets/js/fecha.js">
-    <link rel="stylesheet" href="/assets/js/accordion.js">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">  -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lista de Ventas</title>
-  </head>
-  <body>
-    <div class="card text-start bg-secondary">
-        <div class="card-header bg-dark">
-            <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
-                    <img src="assets/img/LogoAtomiumBlanco.png" alt="" width="30" height="24">
-                    atomium
-                  </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50px;">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Gestion De Ventas</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion De Vendedores</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Administrador
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Editar datos de usuario</a></li>
-                          <li><a class="dropdown-item" href="#">Agregar Producto</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Salir</a></li>
-                        </ul>
-                    </ul>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">  -->
+  <title>atomium</title>
+</head>
+
+<body>
+  <div class="card text-start bg-secondary">
+    <div class="card-header bg-dark">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./lista_ventas_admin.html">
+            <img src="assets/img/LogoAtomiumBlanco.png" alt="" width="30" height="24">
+            atomium
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./lista_ventas_admin.html">Gestion De Ventas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gestion De Vendedores</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Administrador
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="agregar_producto.html">Agregar Producto</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Salir</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="card-body text-white bg-secondary">
+      <div class="description">
+        <h1>Lista de Ventas</h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row row-cols-2">
+          <div class="col-xxl-6">
+            Buscar Producto
+            <div class="input-group mb-1">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xxl-6">
+            Seleccionados
+            <div class="input-group mb-1">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xxl-6">
+            Fecha Inicial
+            <input type="date" class="form-control mb-1" name="tugash" value="{{ $end_time }}" max="{{ $max->time }}"
+              min="{{ $min->time }}">
+          </div>
+          <div class="col-xxl-6">Fecha del Pago
+            <input type="date" class="form-control mb-1" name="tugash" value="{{ $end_time }}" max="{{ $max->time }}"
+              min="{{ $min->time }}">
+          </div>
+          <div class="col-xxl-6">
+            Vendedor
+            <div class="input-group mb-1">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xxl-6">
+            Mercado
+            <select class="form-select mb-1">
+              <option selected>Tienda Virtual</option>
+              <option value="2">Tienda Física</option>
+            </select>
+          </div>
+          <div class="col-xxl-6">
+            Documento Del Cliente
+            <div class="input-group mb-1">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xxl-6">
+            Nombre Del Cliente
+            <div class="input-group mb-1">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-xxl-6">
+            Estado
+            <select class="form-select mb-1">
+              <option selected>En Creación</option>
+              <option value="2">En Embalaje</option>
+              <option value="3">En Despacho</option>
+              <option value="4">En Ruta</option>
+              <option value="5">Recibido</option>
+            </select>
+          </div>
+          <div class="col-xxl-6">
+            Total Venta
+            <div class="input-group mb-1">
+              <span class="input-group-text">$</span>
+              <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="d-grid gap-2 d-md-block p-1">
+          <button class="btn btn-dark" type="button">Registrar Venta</button>
+          <button class="btn btn-dark" type="button">Previsualizar Venta</button>
+        </div>
+      </div>
+      <div class="container-fluid p-1" id="accordion_search_bar_container">
+        <div class="col-xxl-6">
+          <div class="input-group mb-1">
+            <input type="search" id="accordion_search_bar" class="form-control rounded"
+              placeholder="Buscar en la Lista" />
+          </div>
+        </div>
+      </div>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button accordion-button-dark" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <h6>ID</h6>
+                    <p>1</p>
+                  </div>
+                  <div class="col">
+                    <h6>Documento Del Cliente</h6>
+                    <p>15164654</p>
+                  </div>
+                  <div class="col">
+                    <h6>Nombre Del Cliente</h6>
+                    <p>Lorenzo Perez</p>
                   </div>
                 </div>
-              </nav>
-        </div>
-        <div class="card-body text-white bg-secondary">
-          <div class="description">
-            <h1>Lista de Ventas</h1>
-          </div>
-            <div class="container-fluid">
-                    <div class="row row-cols-2">
-                      <div class="col-xxl-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                        Elegir Productos
-                        <div class="input-group mb-1">
-                          <input type="search" class="form-control rounded"/>
-                        </div>
-                      </div>
-                      <div class="col-xxl-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                        Productos Seleccionados
-                        <div class="input-group mb-1">
-                          <input type="search" class="form-control rounded"/>
-                        </div>
-                      </div>
-                      <div class="col-xxl-6">
-                        Fecha Inicial
-                        <input type="date" class="form-control mb-1" name="tugash" value="{{ $end_time }}" max="{{ $max->time }}" min="{{ $min->time }}">
-                      </div>
-                      <div class="col-xxl-6">Fecha del Pago
-                        <input type="date" class="form-control mb-1" name="tugash" value="{{ $end_time }}" max="{{ $max->time }}" min="{{ $min->time }}">
-                      </div>
-                      <div class="col-xxl-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                        Vendedor
-                        <div class="input-group mb-1">
-                          <input type="search" class="form-control rounded"/>
-                        </div>
-                      </div>
-                      <div class="col-xxl-6">
-                        Mercado
-                        <select class="form-select mb-1">
-                          <option selected>Elige El Mercado</option>
-                          <option value="1">Tienda Virtual</option>
-                          <option value="2">Tienda Física</option>
-                        </select>
-                      </div>
-                      <div class="col-xxl-6">
-                        Estado
-                        <select class="form-select mb-1">
-                          <option selected>Elige un Estado</option>
-                          <option value="1">En Creación</option>
-                          <option value="2">En Embalaje</option>
-                          <option value="3">En Despacho</option>
-                          <option value="4">En Ruta</option>
-                          <option value="5">Recibido</option>
-                        </select>
-                      </div>
-                      <div class="col-xxl-6">
-                        Total Venta
-                        <div class="input-group mb-1">
-                          <span class="input-group-text">$</span>
-                          <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="container">
-                      <div class="d-grid gap-2 d-md-block p-1">
-                          <button class="btn btn-dark" type="button">Registrar Venta</button>
-                          <button class="btn btn-dark" type="button">Previsualizar Venta</button>
-                      </div>
-                    </div>
-                    <div class="container-fluid p-1" id="accordion_search_bar_container">
-                      <div class="col-xxl-6">
-                        <div class="input-group mb-1">
-                          <input type="search" id="accordion_search_bar" class="form-control rounded" placeholder="Buscar en la Lista"/>
-                        </div>
-                      </div>
-                    </div>
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button accordion-button-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col">
-                                <h6>ID</h6><p>1</p>
-                              </div>
-                              <div class="col">
-                                <h6>Producto</h6><p>Camiseta Polo 1</p>
-                              </div>
-                              <div class="col">
-                                <h6>Vendedor</h6><p>Juan Diego Medina Rojas</p>
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body text-dark">
-                          <div class="container">
-                            <div class="row g-2">
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor1</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de inicio: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-                            <button type="button" class="btn btn-dark">Modificar Venta</button>
-                            <button type="button" class="btn btn-dark">Eliminar Venta</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col">
-                                <h6>ID</h6><p>1</p>
-                              </div>
-                              <div class="col">
-                                <h6>Producto</h6><p>Camiseta Polo 1</p>
-                              </div>
-                              <div class="col">
-                                <h6>Vendedor</h6><p>Juan Diego Medina Rojas</p>
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body text-dark">
-                          <div class="container">
-                            <div class="row g-2">
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor2</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de inicio: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-                            <button type="button" class="btn btn-dark">Modificar Venta</button>
-                            <button type="button" class="btn btn-dark">Eliminar Venta</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col">
-                                <h6>ID</h6><p>1</p>
-                              </div>
-                              <div class="col">
-                                <h6>Producto</h6><p>Camiseta Polo 3</p>
-                              </div>
-                              <div class="col">
-                                <h6>Vendedor</h6><p>Juan Diego Bedoya</p>
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      </h2>
-                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body text-dark">
-                          <div class="container">
-                            <div class="row g-2">
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor2</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de inicio: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
-                              </div>
-                              <div class="col-6">
-                                <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-                            <button type="button" class="btn btn-dark">Modificar Venta</button>
-                            <button type="button" class="btn btn-dark">Eliminar Venta</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
               </div>
-    </div>
-    <div class="card-footer text-muted text-white bg-dark">
-      <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-12">
-          <h6 class="text-uppercase font-weight-bold">Información Adicional</h6>
-          <p>Carrera 200 Numero 500 - 20 Piso 1001, Bogotá D.C., Colombia</p>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body text-dark">
+              <div class="container">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Inicio: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Producto: </strong><a>Camiseta Polo 1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+                <button type="button" class="btn btn-dark">Modificar Venta</button>
+                <button type="button" class="btn btn-danger">Eliminar Venta</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <h6 class="text-uppercase font-weight-bold">Contacto</h6>
-          <p>Colombia
-          <br/>info@atomium.com<br/>
-          + 57 777 888 88
-          + 57 888 777 77</p>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <h6>ID</h6>
+                    <p>2</p>
+                  </div>
+                  <div class="col">
+                    <h6>Documento Del Cliente</h6>
+                    <p>9654654</p>
+                  </div>
+                  <div class="col">
+                    <h6>Nombre Del Cliente</h6>
+                    <p>Claudia Tamayo</p>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body text-dark">
+              <div class="container">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Inicio: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Producto: </strong><a>Camiseta Polo 1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+                <button type="button" class="btn btn-dark">Modificar Venta</button>
+                <button type="button" class="btn btn-danger">Eliminar Venta</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-        <div class="footer-copyright text-center">© 2021 Copyright: Equipo10</div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <h6>ID</h6>
+                    <p>3</p>
+                  </div>
+                  <div class="col">
+                    <h6>Documento Del Cliente</h6>
+                    <p>48798</p>
+                  </div>
+                  <div class="col">
+                    <h6>Nombre Del Cliente</h6>
+                    <p>Pablo Guzman</p>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body text-dark">
+              <div class="container">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Creada por: </strong><a>Vendedor1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Inicio: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Producto: </strong><a>Camiseta Polo 1</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Fecha de Pago: </strong><a>date</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Mercado: </strong><a>Tienda Virtual</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Estado: </strong><a>Recibido</a></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+                <button type="button" class="btn btn-dark">Modificar Venta</button>
+                <button type="button" class="btn btn-danger">Eliminar Venta</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
+  <div class="card-footer text-muted text-white bg-dark">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <h6 class="text-uppercase font-weight-bold">Información Adicional</h6>
+        <p>Carrera 200 Numero 500 - 20 Piso 1001, Bogotá D.C., Colombia</p>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+        <p>Colombia
+          <br />info@atomium.com<br />
+          + 57 777 888 88
+          + 57 888 777 77
+        </p>
+      </div>
+      <div>
+        <div class="footer-copyright text-center">© 2021 Copyright: Equipo10</div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/js/accordion.js"></script>
+  <script src="assets/js/fecha.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
-  </body>
+</body>
+
 </html>

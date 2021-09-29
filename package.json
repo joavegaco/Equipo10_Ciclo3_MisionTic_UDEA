@@ -19,6 +19,7 @@
   "homepage": "https://github.com/joavegaco/Equipo10_Ciclo3_MisionTic_UDEA#readme",
   "dependencies": {
     "boostrap": "^2.0.0",
-    "bootstrap": "^5.1.1"
+    "bootstrap": "^5.1.1",
+    "react-bootstrap": "^2.0.0-rc.0"
   }
 }
