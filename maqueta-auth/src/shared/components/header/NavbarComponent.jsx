@@ -1,32 +1,42 @@
 import React from "react";
+import {Link} from 'react-router-dom';
+function NavbarComponent(props){
 
-function NavbarComponent(){
-    return(<div>
-        <div class="card text-start bg-secondary">
+
+  let title = props.title;
+  console.log(props.title);
+
+    return(
+    <div>
+    
+    <div className="card text-start bg-secondary">
       
-      <div class="card-header bg-dark">
-          <nav class="navbar navbar-dark bg-dark navbar-expand-lg"/>
+      <div className="card-header bg-dark">
+          <nav className="navbar navbar-dark bg-dark navbar-expand-lg"  style={{display:"flex", flexDirection:"row"}}/>
             
-              <div class="col-12 col-6 col-xl-4">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#" style="font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-                  <img src="assets/img/LogoAtomiumBlanco.png" alt="" height="75"/>
-                    INICIO DE SESIÓN
-                  </a>
-                </div>
-              </div>
-              <div class="col-12 col-6 col-xl-4">
-                <div class="container-fluid">
-                    <img src="assets\img\LogoAtomiumLogotipoBlanco.svg"  width="100%"/>
-                </div>
-              </div>
-              <div class="col-6 col-xl-4">
-                <div class="container-fluid">
-                    
-                </div>
-              </div>
+            <div className="col-12 col-6 col-xl-4">
+              <div className="container-fluid">
+                <Link to="/login" className="navbar-brand">
+                <img src="assets/img/LogoAtomiumBlanco.png" alt=" " height="75"/>
+                
+                {title}</Link>
               </div>
             </div>
+
+            <div className="col-12 col-6 col-xl-4">
+              <div className="container-fluid">
+                  <img src="assets\img\LogoAtomiumLogotipoBlanco.svg" alt="" width="100%"/>
+              </div>
+            </div>
+
+            <div className="col-6 col-xl-4">
+              <div className="container-fluid">
+                  
+              </div>
+            </div>
+  
+      </div>
+    </div>
           
       </div>)
     };
