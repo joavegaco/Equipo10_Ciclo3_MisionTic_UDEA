@@ -1,10 +1,17 @@
 import React, { Fragment } from "react";
 import NavbarComponent from "../shared/components/header/NavbarComponent";
+import { Helmet } from "react-helmet";
+import AtomiumLogin from '.AtomiumLogin';
+
+
 
 function LoginPage() {
 
     return (
     <Fragment>
+      <Helmet>
+        <link rel="stylesheet" href="AtomiumLogin.js" />
+      </Helmet>
         <NavbarComponent />
         <div class="card-body text-white bg-secondary">
   <div class="mt-5">
