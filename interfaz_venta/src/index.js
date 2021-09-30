@@ -4,15 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Archivo CSS de Bootstrap 5
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js'; // Archivo Javascript de Bootstrap 5
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Home_Admin from './componentes/Home/Home_Admin';
-import Home_Vendedor from './componentes/Home/Home_Vendedor';
-import Productos from './componentes/Productos/Productos';
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
