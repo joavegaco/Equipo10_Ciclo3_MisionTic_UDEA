@@ -8,13 +8,13 @@ import {
 } from "react-router-dom";
 import Home from './home';
 import MyBooks from './mybooks';
-import Favorites from './favorites';
+import LoginPage from './LoginPage';
 const Webpages = () => {
     return(
         <Router>
             <Route exact path="/" component= {Home} />
             <Route path = "/mybooks" component = {MyBooks} />
-            <Route path = "/favorites" component = {Favorites} />
+            <Route path = "/LoginPage" component = {LoginPage} />
         </Router>
     );
 };

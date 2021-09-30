@@ -11,7 +11,7 @@ function LoginPage() {
     <div class="container-fluid">  
       <div class="row row-cols-3">
         <div class="col-6 col-xl-4">
-          <P style="width:100%">Atomium es una empresa...</P>
+          <param style="width:100%">Atomium es una empresa...</param>
         </div>
         
         <div class="col-12 col-xl-4" style="margin:auto">
@@ -24,7 +24,7 @@ function LoginPage() {
             <form class="login-container">
               <h6>EMAIL</h6>
               <p><input type="texto" placeholder="Email"/></p>
-              <H6>CONTRASEÑA</H6>
+              <h6>CONTRASEÑA</h6>
               <p><input type="password" placeholder="Password"/></p>
               <p> <input type="submit" value="Entrar"/> </p>
             </form>
