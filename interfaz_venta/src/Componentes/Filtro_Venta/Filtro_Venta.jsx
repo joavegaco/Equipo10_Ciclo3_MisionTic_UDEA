@@ -1,11 +1,12 @@
 import React from 'react'
+import './Filtro.css'
 
 function Filtro_Venta() {
     return (
-      <div class="container-fluid p-2" id="accordion_search_bar_container">
-        <div class="col-xxl-6">
-          <div class="input-group mb-3">
-            <input type="search" id="accordion_search_bar" class="form-control rounded"
+      <div className="container-fluid p-2 bg-secondary text-white" id="accordion_search_bar_container">
+        <div className="col-xxl-6">
+          <div className="input-group mb-3">
+            <input type="search" id="accordion_search_bar" className="form-control rounded"
               placeholder="Buscar en la Lista" />
           </div>
         </div>

@@ -56,7 +56,6 @@ function Accordion_Admin() {
               </div>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
                 <button type="button" className="btn btn-dark">Modificar Venta</button>
-                <button type="button" className="btn btn-danger">Eliminar Venta</button>
               </div>
             </div>
           </div>
@@ -113,7 +112,6 @@ function Accordion_Admin() {
               </div>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
                 <button type="button" className="btn btn-dark">Modificar Venta</button>
-                <button type="button" className="btn btn-danger">Eliminar Venta</button>
               </div>
             </div>
           </div>
@@ -170,7 +168,6 @@ function Accordion_Admin() {
               </div>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
                 <button type="button" className="btn btn-dark">Modificar Venta</button>
-                <button type="button" className="btn btn-danger">Eliminar Venta</button>
               </div>
             </div>
           </div>
