@@ -1,5 +1,9 @@
 function valida_envia(){
-    if(document.registro.email.includes("@")) {
-        alert(`Introduzca un correo válido`);
-    } 
+    if(document.registro.email.value.includes("@")) {
+        
+    }else{
+        alert("Introduzca un correo válido");
+    }
 }
+
+console.log(4+8)
