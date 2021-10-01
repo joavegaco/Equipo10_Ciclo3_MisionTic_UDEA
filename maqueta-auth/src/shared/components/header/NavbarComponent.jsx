@@ -12,7 +12,7 @@ function NavbarComponent(props){
     <div className="card text-start bg-secondary">
       
       <div className="card-header bg-dark">
-          <nav className="navbar navbar-dark bg-dark navbar-expand-lg"  style={{display:"flex", flexDirection:"row"}}/>
+          <nav className="navbar navbar-dark bg-dark navbar-expand-lg"  style={{display:"flex", flexDirection:"row"}}/ >
             
             <div className="col-12 col-6 col-xl-4">
               <div className="container-fluid">

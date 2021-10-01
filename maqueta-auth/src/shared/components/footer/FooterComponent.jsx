@@ -2,7 +2,7 @@ import React from "react";
 
 function FooterComponent(){
     return(
-      <div className="card-footer text-muted text-white bg-dark">
+      <div className="card-footer text-muted text-white bg-dark" style={{fontFamily:"Avenir"}}>
       <div className="row">
         <div className="col-lg-8 col-md-8 col-sm-12">
           <h6 className="text-uppercase font-weight-bold">Información Adicional</h6>
