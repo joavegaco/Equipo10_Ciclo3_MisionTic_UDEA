@@ -75,7 +75,7 @@ function RegisterPage() {
                       </div>
                     </div>
                     <div className="className form-row mt-3">
-                      <p> <input type="submit" onclick="valida_envia()" value="Registrarse en Atomium" /> </p>
+                      <p> <input type="submit" onClick="valida_envia()" value="Registrarse en Atomium" /> </p>
                     </div>
                 </div> 
               </form> 
