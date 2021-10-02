@@ -8,6 +8,10 @@ import LoginPage from './auth/LoginPage';
 import RegisterPage from './register/RegisterPage';
 import FooterComponent from './shared/components/footer/FooterComponent';
 import NavbarComponent from './shared/components/header/NavbarComponent';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/css/AtomiumLogin.css';
+
 function App() {
   return (
     <Router>

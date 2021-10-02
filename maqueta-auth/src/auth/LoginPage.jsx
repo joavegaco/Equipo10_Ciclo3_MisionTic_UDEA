@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import './AtomiumLogin.css'
+
 
 function LoginPage() {
 
@@ -7,7 +7,6 @@ function LoginPage() {
   const [password,setPassword]= useState("");
     return (
     <Fragment>
-      <h1>Hola Johan</h1>
         <div className="card-body text-white bg-secondary">
           <div className="mt-5">
             <div className="container-fluid">  
