@@ -11,6 +11,8 @@ import NavbarComponent from './shared/components/header/NavbarComponent';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/AtomiumLogin.css';
+import ConfirmPassword from './confirm/ConfirmPassword';
+import InputEmail from './mail/InputEmail';
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
         </Route>
         <Route path="/register" exact>
           <RegisterPage/> 
+        </Route>
+        <Route path="/confirm" exact>
+          <ConfirmPassword/> 
+        </Route>
+        <Route path="/mail" exact>
+          <InputEmail/> 
         </Route>
 
       </Switch>
