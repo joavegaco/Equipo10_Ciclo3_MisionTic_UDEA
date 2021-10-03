@@ -34,7 +34,7 @@ function ConfirmPassword(){
         </div>
         
         
-        <div className="col-12 col-6 col-xl-4" style={{backgroundImage: "url('assets/img/ImagologoAtomiumTransparente-01.png')",backgroundRepeat: "no-repeat"}}></div>
+        <div className="col-12 col-6 col-xl-4" style={{backgroundImage: "url('./src/assets/img/ImagologoAtomiumTransparente-01.png')",backgroundRepeat: "no-repeat"}}></div>
         
       </div>
     </div>

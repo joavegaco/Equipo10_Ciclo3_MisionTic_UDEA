@@ -15,6 +15,7 @@ import NavbarComponent from './shared/components/header/NavbarComponent';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/AtomiumLogin.css';
 
+import './assets/img/ImagologoAtomiumTransparente-01.png';
 
 function App() {
   return (

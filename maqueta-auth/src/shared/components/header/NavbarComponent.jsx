@@ -1,5 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import logotipo from './LogoAtomiumLogotipoBlanco.svg';
+import logo from './LogoAtomium-Blanco.svg';
+
 function NavbarComponent(props){
 
 
@@ -12,12 +15,12 @@ function NavbarComponent(props){
     <div className="card text-start bg-secondary">
       
       <div className="card-header bg-dark">
-          <nav className="navbar navbar-dark bg-dark navbar-expand-lg"  style={{display:"flex", flexDirection:"row"}} />
+          <nav className="navbar navbar-dark bg-dark navbar-expand-lg"  style={{display:"flex", flexDirection:"row"}}>
             
-            <div className="col-12 col-6 col-xl-4">
-              <div className="container-fluid">
+            <div className="col-12 col-6 col-xl-4" margin="auto">
+              <div className="container-fluid" >
                 <Link to="/auth" className="navbar-brand">
-                <img src="assets/img/LogoAtomiumBlanco.png" alt=" " height="75"/>
+                <img src={logo} alt=" " height="75"/>
                 
                 {title}</Link>
               </div>
@@ -25,7 +28,7 @@ function NavbarComponent(props){
 
             <div className="col-12 col-6 col-xl-4">
               <div className="container-fluid">
-                  <img src="assets\img\LogoAtomiumLogotipoBlanco.svg" alt="" width="100%"/>
+                  <img src={logotipo} alt="" width="100%"/>
               </div>
             </div>
 
@@ -34,7 +37,7 @@ function NavbarComponent(props){
                   
               </div>
             </div>
-  
+        </nav>
       </div>
     
           
