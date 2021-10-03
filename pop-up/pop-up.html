@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="pop-up.css">
+</head>
+
+<body>
+    <div class="body-container">
+        <div>
+
+            <button class="boton-para-editar" id="open_edition">
+                Editar
+            </button>
+        </div>
+
+        <div class="Contenedor-Pop-Up" id="Contenedor_Pop_Up">
+            <div class="Pop-up">
+                <h3>Registro de roles e información de cada empleado</h3>
+                <div class="tabla-empleados">
+                    <table>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Nombre</th>
+                            <th>Cargo</th>
+                            <th>Oficina</th>
+                            <th>Edad</th>
+                            <th>Fecha</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="State">
+                                </form>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="Name">
+                                </form>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="Cargo">
+                                </form>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="Oficina">
+                                </form>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="Edad">
+                                </form>
+                            </td>
+                            <td>
+                                <form>
+                                    <input type="text" placeholder="Fecha">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <span>
+                    <button id="safe_changes">Guardar cambios</button>
+                    <button id="close">Cerrar</button>
+                </span>
+                <div></div>
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+        <script src="pop-up.js"></script>
+    </div>
+</body>
+
+</html>

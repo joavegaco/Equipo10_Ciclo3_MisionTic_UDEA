@@ -1,0 +1,43 @@
+h2{
+    background-color: cornflowerblue;
+    font-family: Avenir;
+    font-size: 40px;
+    width: 600px;
+}
+#mi-titulo{
+    background-color: rgb(252, 0, 252);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color:cornsilk;
+    width:600px;
+}
+
+.btn{
+    margin-left: 20px;
+    font-size: 30px;
+    width: 100px;
+    height: 50px;
+}
+
+.btn-danger{
+    background-color: red;
+    color:white; 
+}
+.btn-primary{
+    background-color: purple;
+    color:white;
+    border-radius: 25px;
+}
+
+.btn-position{
+    position:absolute;
+    top:100%;
+    left: 200px;
+}
+
+.box-position{
+    position: absolute;
+    top:0%;
+    right: 10%;
+    background-color: thistle;
+}

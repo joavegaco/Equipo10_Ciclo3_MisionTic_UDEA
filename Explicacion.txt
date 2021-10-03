@@ -1,0 +1,2 @@
+En este repositorio trabajaremos la parte que corresponde a la gestión de roles para la página web. Los objetivos excatos los encontramos en el Trello grupal. 
+En case de ser necesario los copiaré aquí más adelante. 

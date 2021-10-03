@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets\css\JVega-Login-css.css">
+</head>
+<body>
+    <!-- Just an image -->
+  <div class="card text-start bg-secondary">
+      
+        <div class="card-header bg-dark">
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+              
+                <div class="col-12 col-6 col-xl-4">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="font-size: 14px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                      <img src="assets/img/LogoAtomiumBlanco.png" alt="" height="75">
+                      CONFIRMACIÓN DE CONTRASEÑA
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-6 col-xl-4">
+                  <div class="container-fluid">
+                      <img src="assets\img\LogoAtomiumLogotipoBlanco.svg"  width="100%">
+                  </div>
+                </div>
+                <div class="col-6 col-xl-4">
+                  <div class="container-fluid">
+                      
+                  </div>
+                </div>
+              </div>
+            </div>
+              </nav>
+        </div>
+    </div>
+
+    <!--Cierra navbar-->
+
+    <!--Inicia grid; segunda fila-->
+    <!--Primera columna: Presentación empresa-->
+    <!--Segunda columna: Login-->
+    <!--Tercera columna: Imagen transparente-->
+  <div class="card-body text-white bg-secondary">
+  <div class="mt-5">
+    <div class="container-fluid"style="margin:auto">  
+      <div class="row row-cols-3" >
+        <div class="col-6 col-xl-4">
+          <P style="width:100%">Atomium es una empresa...</P>
+        </div>
+        
+        <div class="col-12 col-xl-4">
+          <!--Arranca login-->
+
+          <div class="login">
+          
+            <h2 class="login-header">Renueve su contraseña</h2>
+          
+            <form class="login-container" name="registro">
+              <h6>Introduzca nueva contraseña</h6>
+              <p><input type="password" name ="contrasenya" placeholder="Password"></p>
+              <H6>Confirme nueva contraseña</H6>
+              <p><input type="password" name="confirmarcontrasenya" placeholder="Password"></p>
+              <p> <input type="submit" value="Entrar" onclick="valida_envia()"> </p>
+            </form>
+          
+          
+            <hr style="background-color: rgb(255, 255, 255);margin:auto">
+            <!--Cierra login-->
+
+            <!--Arranca instrucción-->
+          </div>
+          <!--Cierra columna-->
+        </div>
+        
+        <!--Abre columna logo-->
+        <div class="col-12 col-6 col-xl-4" style="background-image: url('assets/img/ImagologoAtomiumTransparente-01.png');background-repeat: no-repeat;"></div>
+        <!--Cierra columna logo-->
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!--Empieza footer-->
+  <div class="card-footer text-muted text-white bg-dark">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold">Información Adicional</h6>
+          <p>Carrera 200 Numero 500 - 20 Piso 1001, Bogotá D.C., Colombia</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold">Contacto</h6>
+          <p>Colombia
+          <br/>info@atomium.com<br/>
+          + 57 777 888 88
+          + 57 888 777 77</p>
+        </div>
+        <div>
+        <div class="footer-copyright text-center">© 2021 Copyright: Equipo10</div>
+        </div>
+      </div>
+    </div>
+  <!--Cierra footer-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="assets\js\JVega-Login.js"></script>
+  <script src="assets\js\contrasenya.js"></script>
+</body>
+</html>
