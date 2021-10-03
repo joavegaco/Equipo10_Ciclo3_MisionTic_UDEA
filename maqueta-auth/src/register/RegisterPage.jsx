@@ -5,7 +5,7 @@ function RegisterPage() {
 
     return (<Fragment>
         
-    <div className="card-body text-white bg-secondary">
+  <div className="card-body text-white bg-secondary">
     <div className="mt-5 mb-3">
       <div className="container-fluid">  
         <div className="row row-cols-3">
@@ -77,21 +77,18 @@ function RegisterPage() {
                     <div className="className form-row mt-3">
                       <p> <input type="submit" onClick="valida_envia()" value="Registrarse en Atomium" /> </p>
                     </div>
-                </div> 
-              </form> 
-              </div>          
-            </div>
+              </div>      
+            </form>
+          </div>        
+          <div className="col-12 col-6 col-xl-4" style={{backgroundImage: "url('assets/img/ImagologoAtomiumTransparente-01.png')",backgroundRepeat:"no-repeat",maxWidth:"33vw"}}>
+          </div>
         </div>
-        
-          
-        
-          
-        <div className="col-12 col-6 col-xl-4" style={{backgroundImage: "url('assets/img/ImagologoAtomiumTransparente-01.png')",backgroundRepeat:"no-repeat",maxWidth:"33vw"}}>
-        </div>
-        
-        </div>
+      </div>
     </div>
-    </Fragment>)
+  </div>
+  
+</Fragment>)
 }
 
 export default RegisterPage;
+

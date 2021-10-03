@@ -11,7 +11,6 @@ function NavbarComponent(props){
 
     return(
     
-    
     <div className="card text-start bg-secondary">
       
       <div className="card-header bg-dark">
