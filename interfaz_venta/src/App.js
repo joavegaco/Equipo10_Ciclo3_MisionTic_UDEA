@@ -7,22 +7,22 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 function App() {
   return (
     <Router>
-    <Switch>
-      <Route path="/" exact>
-        <h1>Interfaz de Login</h1>
-      </Route>
-      <Route path="/gestion_ventas" exact>
-        <ListaPage></ListaPage>
-      </Route>
-      <Route path="/agregar_productos" exact>
-        <Registrar></Registrar>
-      </Route>
-      <Route path="/gestion_venta" exact>
-        <ListaV></ListaV>
-      </Route>
-    </Switch>
-    <Footer/>
-  </Router>
+      <Switch>
+        <Route path="/" exact>
+          <h1>Interfaz de Login</h1>
+        </Route>
+        <Route path="/gestion_ventas" exact>
+          <ListaPage></ListaPage>
+        </Route>
+        <Route path="/agregar_productos" exact>
+          <Registrar></Registrar>
+        </Route>
+        <Route path="/gestion_venta" exact>
+          <ListaV></ListaV>
+        </Route>
+      </Switch>
+      <Footer/>
+    </Router>
   );
 }
 
