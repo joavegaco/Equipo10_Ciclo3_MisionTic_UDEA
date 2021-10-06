@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Collapse, Table, Modal, Button, Form } from 'react-bootstrap';
+import "./Modal.css"
 
 
 export default function Modal_Modificar() {
+    const [open, setOpen] = useState(false);
     const [show1, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const handleClose = () => setShow(false);
@@ -10,37 +12,38 @@ export default function Modal_Modificar() {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
     return (
-        <div className="accordion-item">
-            <h2 className="accordion-header" id="headingOne">
-                <button className="accordion-button accordion-button-dark" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col">
-                                <h6>Código</h6>
-                                <p>1</p>
-                            </div>
-                            <div className="col">
-                                <h6>Producto</h6>
-                                <p>Camiseta Polo 4</p>
-                            </div>
-                        </div>
-                    </div>
-                </button>
-            </h2>
-            <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div className="accordion-body text-dark">
-                    <div className="container">
-                        <div className="row">
+
+        <div className="container-fluid bg-secondary">
+        <div className="row">
+            <div className="col">
+                <Table responsive variant="light">
+                    <thead>
+                        <tr>
+                            <th>ID Producto</th>
+                            <th>Descripción Del Producto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            onClick={() => setOpen(!open)}
+                            aria-expanded={open}
+                        >
+                            <td>1</td>
+                            {Array.from({ length: 1 }).map((_, index) => (
+                                <td key={index}>Table cell {index}</td>
+                            ))}
+                        </tr>
+                        <Collapse in={open}>
+                            <div>
+                                <div className="container" text-white>
+                                <div className="row">
                             <div className="col">
                                 <div className="p-3 border bg-light"><strong>Precio: $</strong><a>10000</a></div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-
-                        <Button className="btn btn-dark m-2" onClick={handleShow}>
+                            </div>
+                                </div>
+                                <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+                                <Button className="btn btn-dark m-2" onClick={handleShow}>
                             Modificar Producto
                         </Button>
 
@@ -92,9 +95,13 @@ export default function Modal_Modificar() {
                                 </Button>
                             </Modal.Footer>
                         </Modal>
-                    </div>
-                </div   >
+                                </div>
+                            </div>
+                        </Collapse>
+                    </tbody>
+                </Table>
             </div>
-        </div >
+        </div>
+    </div>
     );
 }

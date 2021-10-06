@@ -1,14 +1,5 @@
-.modal{
-    position:fixed;
-    z-index: 999;
-    top:0;
-    left:0;
-    width:100%;
-    min-height:100vh;
-    background-color: rgba(255,255,255,0.75);
-    display:none;
-    justify-content: center;
-    align-items: center;
+.bg-secondary{
+    background-color: #6c757d
 }
 
 .modal.is-open{
