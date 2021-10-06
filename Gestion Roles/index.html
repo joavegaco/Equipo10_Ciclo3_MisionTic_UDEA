@@ -199,11 +199,22 @@
             {
                 id: "bAdd",
                 text: "agregar",
-                icon: "add_circle",
+                icon: 'add_circle',
                 action: function(){
                     // codigo callback
                     dt.add(["offline", "120155", "Juan Bedoya", "Ingeniero", "Medellin", "24", "2020/10/10"]);
                 }
+            },
+            {
+                id: "bEdit",
+                text: "editar",
+                icon: "edit",
+                action: function(){
+                    // codigo callback
+                    const elementos = dt.getSelected();
+                    console.log(elementos);
+                }
+                
             },
             {
                 id: "bDelete",
@@ -214,6 +225,7 @@
                     const elementos = dt.getSelected();
                     console.log(elementos);
                 }
+                
             }
         ]);
 
