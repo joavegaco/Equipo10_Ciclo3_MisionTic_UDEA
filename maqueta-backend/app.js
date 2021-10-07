@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const conexion = require('./database/db');
 
 const app = express();
 const port = 5000;
@@ -21,6 +22,7 @@ app.use('/',require('./routes/router'))
 app.get('/', (req, res) => {
   res.render('index')
 })
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
