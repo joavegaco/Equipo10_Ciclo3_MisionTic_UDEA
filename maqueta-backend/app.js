@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const cookieParser = require('cookieParser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 5000;
