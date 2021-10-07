@@ -1,35 +1,25 @@
-const express = require('express')
-const morgan = require ('morgan');
+const express = require('express');
+const dotenv = require('dotenv');
+const cookieParser = require('cookieParser');
 
-const app = express()
-const port = 5000
+const app = express();
+const port = 5000;
 
-app.use(morgan('dev'));
+app.set('view engine', 'ejs')
+
+app.use(express.static('public'))
+
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-app.get('/get-product', (req, res) => {
-  res.send('Hola Mundo')
-})
+dotenv.config({path:'./env/.env'})
 
-app.post('/add-product',(req,res) =>{
-  const product = req.body;
-  console.log(product.name);
-  res.json('Hola Mundo')
-  
-})
+app.use(cookieParser)  
 
-app.put('/update-product',(req,res) =>{
-  const product = req.body;
-  console.log(product.name);
-  res.json('Hola Mundo')
-  
-})
+app.use('/',require('./routes/router'))
 
-app.delete('/delete-product',(req,res) =>{
-  const product = req.body;
-  console.log(product.name);
-  res.json('Hola Mundo')
-  
+app.get('/', (req, res) => {
+  res.render('index')
 })
 
 app.listen(port, () => {
