@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,32 +17,50 @@ import './assets/css/AtomiumLogin.css';
 
 import './assets/img/ImagologoAtomiumTransparente-01.png';
 
-function App() {
-  return (
-    <Router>
-      <NavbarComponent/ >
-      
-      <Switch>
-        <Route path ="/" exact>
-          <h1>Home</h1>
-        </Route>
-        <Route path="/auth" exact>
-          <LoginPage/> 
-        </Route>
-        <Route path="/register" exact>
-          <RegisterPage/> 
-        </Route>
-        <Route path="/confirm" exact>
-          <ConfirmPassword/> 
-        </Route>
-        <Route path="/mail" exact>
-          <InputEmail/> 
-        </Route>
+class App extends Component {
 
-      </Switch>
-      <FooterComponent/ >
-    </Router>
-  );
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
+
+  callAPI() {
+    fetch("http://localhost:5000/testAPI")
+      .then(res => res.text())
+      .then(res => this.setState({ apiResponse: res }));
+  }
+
+  componentWillMount() {
+    this.callAPI();
+  }
+
+  render(){
+    return(
+      <Router>
+        <NavbarComponent/ >
+        
+        <Switch>
+          <Route path ="/" exact>
+            <h1>Home</h1>
+          </Route>
+          <Route path="/auth" exact>
+            <LoginPage/> 
+          </Route>
+          <Route path="/register" exact>
+            <RegisterPage/> 
+          </Route>
+          <Route path="/confirm" exact>
+            <ConfirmPassword/> 
+          </Route>
+          <Route path="/mail" exact>
+            <InputEmail/> 
+          </Route>
+
+        </Switch>
+        <FooterComponent/ >
+      </Router >
+    );
+  }
 }
 export default App;
 
