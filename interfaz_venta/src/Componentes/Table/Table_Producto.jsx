@@ -5,7 +5,7 @@ import Modal_Modificar from "../Modal/Modal_Modificar"
 
 function Table_Producto() {
   return (
-    <div className="accordion p-2 bg-secondary" id="accordionExample">
+    <div>
         <Modal_Modificar></Modal_Modificar>
     </div>
   );

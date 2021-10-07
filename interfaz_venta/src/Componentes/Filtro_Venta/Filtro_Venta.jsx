@@ -1,17 +1,39 @@
-import React from 'react'
-import './Filtro.css'
-
-function Filtro_Venta() {
-    return (
-      <div className="container-fluid p-2 bg-secondary text-white" id="accordion_search_bar_container">
-        <div className="col-xxl-6">
-          <div className="input-group mb-3">
-            <input type="search" id="accordion_search_bar" className="form-control rounded"
-              placeholder="Buscar en la Lista" />
-          </div>
-        </div>
-      </div>
-    );
-}
-
-export default Filtro_Venta
+(function(document) {
+	'use strict';
+ 
+	var TableFilter = (function(Arr) {
+ 
+		var _input;
+ 
+		function _onInputEvent(e) {
+		_input = e.target;
+		var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+		Arr.forEach.call(tables, function(table) {
+		Arr.forEach.call(table.tBodies, function(tbody) {
+		Arr.forEach.call(tbody.rows, _filter);
+		});
+		});
+		}
+ 
+		function _filter(row) {
+		var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+		row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+ 
+		return {
+		init: function() {
+		var inputs = document.getElementsByClassName('light-table-filter');
+		Arr.forEach.call(inputs, function(input) {
+		input.oninput = _onInputEvent;
+		});
+		}
+		};
+	})(Array.prototype);
+ 
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+		TableFilter.init();
+		}
+	});
+ 
+})(document);

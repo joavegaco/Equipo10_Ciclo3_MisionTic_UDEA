@@ -1,15 +1,19 @@
 {
   "name": "Interfaz_venta_Backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "App.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon App.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "license": "ISC"
 }
