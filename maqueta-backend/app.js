@@ -1,27 +1,30 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
-var logger = require("morgan");
-var cors = require("cors");
-
-const conexion = require('./database/db');
-var Router = require("./routes/router");
+const logger = require("morgan");
+const cors = require("cors");
 
 const app = express();
 const port = 5000;
 
-app.set('view engine', 'ejs')
+var Router = require("./routes/router");
+var indexRouter = require("./routes/index");
+var testAPIRouter = require("./routes/testAPI");
 
+app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
+app.use(cors());
+app.use(logger("dev"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(cookieParser)
 
 dotenv.config({path:'./env/.env'})
 
-app.use(cookieParser)  
-
+app.use("/", indexRouter);
 app.use('/routes', Router)
+app.use("/testAPI", testAPIRouter);
 
 app.get('/', (req, res) => {
   res.render('index')
