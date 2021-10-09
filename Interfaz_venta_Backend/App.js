@@ -1,33 +1,43 @@
-const { response } = require('express');
 const express = require('express');
 const app = express();
-const port = 3001
+const mysql = require('mysql2/promise');
+const port = 3001;
+const bluebird = require('bluebird');
+let connection; // variable para almacenar la conexión a la DB
 
-app.listen(port, () =>{
-    console.log('server listening on port ' + port)
-});
-
-//Configura el servidor para recibir datos en formato json
+// configura el servidor para recibir datos en formato json
 app.use(express.json());
 
-app.get("/get-product",(req,res)=>{
-    res.send("Todo Ok");
+app.get("/get-products", async (request, response) => {
+    const [rows, fields] = await connection.execute("SELECT * FROM producto");
+    response.json(rows);
 })
 
-app.post("/add-product",(req,res)=>{
-    const product =req.body;
-    console.log(product.name)
-    res.json(req.body)
+app.post("/add-product", async (req, res) => {
+    const [producto, stock, precio, cantidad, vendedor_idvendedor] = req.body;
+    await connection.execute(`INSERT INTO products (producto, stock, precio, cantidad, vendedor_idvendedor) VALUES('${producto}',${stock}, ${precio}, ${cantidad},'${vendedor_idvendedo}')`);
+    res.json(producto)
 })
 
-app.put("/update-product",(req,res)=>{
-    const product =req.body;
-    console.log(product.name)
-    res.json(req.body)
+app.put("/update-product", (req, res) => {
+    const product = req.body;
+    console.log(product.producto)
+    res.json(product)
+})
+app.delete("/delete-product", (req, res) => {
+    const product = req.body;
+    console.log(product.producto)
+    res.json(product)
 })
 
-app.delete("/delete-product",(req,res)=>{
-    const product =req.body;
-    console.log(product.name)
-    res.json(req.body)
-})
+
+app.listen(port, async () => {
+    connection = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '12345678',
+        database: 'mydb',
+        Promise: bluebird
+    });
+    console.log("Server running on port: " + port);
+});
