@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/AtomiumLogin.css';
 
 import './assets/img/ImagologoAtomiumTransparente-01.png';
+import HomePage from './home/HomePage';
 
 class App extends Component {
 
@@ -25,7 +26,7 @@ class App extends Component {
   }
 
   callAPI() {
-    fetch("http://localhost:5000/testAPI")
+    fetch("http://localhost:5000")
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }));
   }
@@ -41,7 +42,7 @@ class App extends Component {
         
         <Switch>
           <Route path ="/" exact>
-            <h1>Home</h1>
+            <HomePage />
           </Route>
           <Route path="/auth" exact>
             <LoginPage/> 
