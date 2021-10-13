@@ -1,6 +1,4 @@
 (function(document) {
-	'use strict';
- 
 	var TableFilter = (function(Arr) {
  
 		var _input;

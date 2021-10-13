@@ -26,7 +26,7 @@ export default function Modal_Mod_Adm() {
                             </thead>
 
                             <tbody>
-                                <tr data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">
+                                <tr data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
                                     <td>1</td>
                                     <td>Camiseta Roja</td>
                                 </tr>

@@ -1,11 +1,12 @@
 const express = require("express")
+const cors = require('cors')
 const mysql = require("mysql2");
 const bodyParser = require('body-parser')
 const port = 3001;
 const app = express();
 
 app.use(bodyParser.json())
-
+app.use(cors({origin: true}))
 const db = mysql.createPool({
    connectionLimit: 100,
    host: "localhost",       //This is your localhost IP

@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import './Body.css'
 import { Modal, Button, Form } from 'react-bootstrap';
+import Select from 'react-select';
 
 function Body() {
+    let productos = [];
+    const [listProducto, setListProducto] = useState([]);
     const [show1, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+
+    const getProducts = async () => {
+        try {
+            const response = await fetch("http://localhost:3001/productos");
+            const jsonResponse = await response.json();
+            const productoid = jsonResponse.data9;
+            productoid.map((product) => {
+                productos.push(product.producto);
+            });
+            setListProducto(productos)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
     return (
         <div className="container-fluid bg-secondary text-white">
             <div className="description">
@@ -16,9 +38,13 @@ function Body() {
             </div>
             <div className="row row-cols-2">
                 <div className="col-xxl-6">
-                    Buscar Producto
-                    <div className="input-group mb-1">
-                        <input type="text" className="form-control" />
+                    <div class="input-group">
+                        <select class="form-select" id="inputGroupSelect04" >
+                            <option selected>Buscar Producto...</option>
+                            listProducto.map(individualFish => {
+                                console.log(individualFish)
+                            });
+                        </select>
                     </div>
                 </div>
                 <div className="col-xxl-6">
