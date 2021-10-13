@@ -25,6 +25,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.0",
+    "promise-mysql": "^5.0.4",
     "util": "^0.12.4"
   },
   "keywords": [],

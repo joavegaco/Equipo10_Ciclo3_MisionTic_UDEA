@@ -4,8 +4,8 @@ import ForbidenComponent from '../shared/components/forbiden/ForbidenComponent';
 
 function HomePage() {
     
-    const [contrasenya,setUser] = useState([]);
-    const {user, isAuthenticated} = useAuth0();
+    const [setUser] = useState([]);
+    const {contrasenya, isAuthenticated} = useAuth0();
 
     const getUser = async () => {
         try {
@@ -17,6 +17,7 @@ function HomePage() {
                     <th scope="row">{contrasenya.ID}</th>
                     <td>{contrasenya.rol}</td>
                     <td>{contrasenya.email}</td>
+                    <td>{contrasenya.nombre}</td>
                     
                 </tr>
             );
@@ -30,7 +31,7 @@ function HomePage() {
     
 
     const validateUserRole = async() =>{
-        const response = await fetch(`http://localhost:5000/get-user?email=${user}`);
+        const response = await fetch(`http://localhost:5000/get-user?email=${contrasenya.email}`);
         const jsonResponse = await response.json();
         return jsonResponse;
     }
@@ -66,7 +67,22 @@ function HomePage() {
     return (
         <div>
             <h1>Bienvenido a Atomium</h1>
-            {contrasenya}
+            <div className="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nombre</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {contrasenya}
+                </tbody>
+            </table>
+        </div>
         </div>
     )}
     else{

@@ -15,13 +15,14 @@ app.use(cors({ origin: true }));
 app.get("/get-user", async(req,res)=>{
   const email = req.query.email;
   const[rows, fields] = await connection.execute(`SELECT*FROM contrasenya where email='${email}'`);
-  response.json(rows[0])
+  response.json(rows[0]);
 })
+
 
 app.listen(port, async () => {
   connection = await mysql.createConnection({
       host: 'localhost',
-      user: 'pma',
+      user: 'root',
       password: '',
       database: 'comercioyusuarios',
       Promise: bluebird
