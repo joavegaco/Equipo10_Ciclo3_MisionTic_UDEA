@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(cors({ origin: true }));
 
 
-app.get("/get-user", async(req,res)=>{
+app.get("/get-user", async(req,res) =>{
   const email = req.query.email;
   const[rows, fields] = await connection.execute(`SELECT*FROM contrasenya where email='${email}'`);
-  response.json(rows[0]);
+  res.json(rows[0]);
 })
 
 
