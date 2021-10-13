@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  
 } from "react-router-dom";
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './register/RegisterPage';
@@ -17,32 +19,18 @@ import './assets/css/AtomiumLogin.css';
 
 import './assets/img/ImagologoAtomiumTransparente-01.png';
 import HomePage from './home/HomePage';
+import ForbidenComponent from './shared/components/forbiden/ForbidenComponent';
 
-class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
-
-  callAPI() {
-    fetch("http://localhost:5000")
-      .then(res => res.text())
-      .then(res => this.setState({ apiResponse: res }));
-  }
-
-  componentWillMount() {
-    this.callAPI();
-  }
-
-  render(){
+function App(){
+  
     return(
       <Router>
         <NavbarComponent/ >
         
         <Switch>
           <Route path ="/" exact>
-            <HomePage />
+            <HomePage/>
           </Route>
           <Route path="/auth" exact>
             <LoginPage/> 
@@ -56,12 +44,15 @@ class App extends Component {
           <Route path="/mail" exact>
             <InputEmail/> 
           </Route>
+          <Route path="/forbiden">
+            <ForbidenComponent/>
+          </Route>
 
         </Switch>
         <FooterComponent/ >
       </Router >
     );
   }
-}
+
 export default App;
 

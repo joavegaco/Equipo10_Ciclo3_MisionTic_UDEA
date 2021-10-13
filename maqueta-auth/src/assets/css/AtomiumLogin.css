@@ -145,3 +145,19 @@ footer {
   transform: translate(-50%, -50%)
 }
 
+.bienvenida {
+  font-size: 1.5em;
+  color: #fff;
+  font-family: 'Franklin Gothic Book', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+}
+
+.ingreso {
+  font-size: 0.75em;
+  color: #fff;
+  font-family: "Avenir";
+  text-align: left;
+  
+  
+}
+
