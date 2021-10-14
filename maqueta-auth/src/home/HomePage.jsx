@@ -4,12 +4,13 @@ import ForbidenComponent from '../shared/components/forbiden/ForbidenComponent';
 
 function HomePage() {
     
-    const [setUser] = useState([]);
+    const [usuarios, setUser] = useState([]);
+    const [validUser, setValidUser] = useState(false);
     const {contrasenya, isAuthenticated} = useAuth0();
 
     const getUser = async () => {
         try {
-            const response = await fetch("http://localhost:5000/get-user");
+            const response = await fetch("http://localhost:5000/get-users");
             const jsonResponse = await response.json();
             const responseUser = jsonResponse.data;
             const listUser = responseUser.map((contrasenya) =>
@@ -36,60 +37,62 @@ function HomePage() {
         return jsonResponse;
     }
 
-  const grantAccess = async () => {
-    let userData;
-    if (isAuthenticated) {
-        userData = await validateUserRole();
-    }
-    else {
-        return false;
-    }
+    const grantAccess = async () => {
 
-    if (userData) {
-        if (userData.role !== "invited") {
-            return true
+        let userData;
+        if (isAuthenticated) {
+            userData = await validateUserRole();
         }
         else {
-            return false;
+            setValidUser(false);
+            return;
+        }
+
+        if (userData) {
+            if (userData.role !== "invited") {
+                setValidUser(true);
+                localStorage.setItem("state",userData.role);
+                await getUser();
+            }
+            else {
+                localStorage.setItem("state",userData.role);
+                setValidUser(false);
+            }
+        }
+        else {
+            setValidUser(false);
         }
     }
-    else {
-        return false
-    }
-}
 
 
     useEffect(()=>{
-        getUser();
-    },[]);
+        grantAccess();
+    },[isAuthenticated, validUser]);
 
-    if(grantAccess()){
     return (
         <div>
             <h1>Bienvenido a Atomium</h1>
             <div className="container">
-            <table class="table">
+            {validUser ? <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Rol</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Nombre</th>
-                        
+                        <th scope="col">Nombre</th>  
                     </tr>
                 </thead>
                 <tbody>
-                    {contrasenya}
+                    {usuarios}
                 </tbody>
-            </table>
+            </table>: <ForbidenComponent/>}
         </div>
         </div>
-    )}
-    else{
-        return <ForbidenComponent />;
+    )
+    
     }
 
-}
+
 
 
 export default HomePage

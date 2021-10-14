@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
 
+
 function RegisterPage() {
 
-    return (<Fragment>
-        
+    return (<Fragment>     
   <div className="card-body text-white bg-secondary">
     <div className="mt-5 mb-3">
       <div className="container-fluid">  
