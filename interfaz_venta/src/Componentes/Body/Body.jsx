@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Body.css'
 import { Modal, Button, Form } from 'react-bootstrap';
-import Select from 'react-select';
+import { MultiSelect } from "react-multi-select-component";
+
 
 function Body() {
     let productos = [];
@@ -12,6 +13,8 @@ function Body() {
     const handleShow = () => setShow(true);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+    const [value, setValue] = useState([]);
+    const [selected, setSelected] = useState([]);
 
     const getProducts = async () => {
         try {
@@ -38,20 +41,17 @@ function Body() {
             </div>
             <div className="row row-cols-2">
                 <div className="col-xxl-6">
-                    <div class="input-group">
-                        <select class="form-select" id="inputGroupSelect04" >
-                            <option selected>Buscar Producto...</option>
-                            listProducto.map(individualFish => {
-                                console.log(individualFish)
-                            });
-                        </select>
+                    <div text-white>
+                        <MultiSelect
+                            options={listProducto}
+                            value={selected}
+                            onChange={setSelected}
+                            labelledBy="Select"
+                        />
                     </div>
                 </div>
                 <div className="col-xxl-6">
-                    Seleccionados
-                    <div className="input-group mb-1">
-                        <input type="text" className="form-control" />
-                    </div>
+                    <textarea class="form-control" id="floatingTextarea" value={selected}></textarea>
                 </div>
                 <div className="col-xxl-6">
                     Fecha Inicial

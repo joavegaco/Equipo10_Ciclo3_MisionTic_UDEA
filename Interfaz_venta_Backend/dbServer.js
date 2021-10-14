@@ -274,7 +274,7 @@ app.delete('/deletemercado/:id',(req,res)=>{
 app.get('/productos',(req,res)=>{
     const sql = 'SELECT * FROM mydb.producto';
     db.query(sql, (err,results)=>{
-        if (err) throw err;
+        //if (err) throw err;
         if (results.length>0){
             res.json({data9: results})
         } else {
@@ -284,16 +284,20 @@ app.get('/productos',(req,res)=>{
 });
 
 app.get('/productos/:id',(req,res)=>{
-    const {id} = req.params;
-    const sql = `SELECT * FROM mydb.producto WHERE idproducto = ${id}`;
-    db.query(sql, (err,results)=>{
-        if (err) throw err;
-        if (results.length>0){
-            res.json({data10: results})
-        } else {
-            res.send('Not result');
-        }
-    });
+    try {
+        const {id} = req.params;
+        const sql = `SELECT * FROM mydb.producto WHERE idproducto = ${id}`;
+        db.query(sql, (err,results)=>{
+            console.log(err);
+            if (results.length>0){
+                res.json({data10: results})
+            } else {
+                res.send('Not result');
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.get('/precio/:id',(req,res)=>{
@@ -323,9 +327,9 @@ app.get('/cantidad/:id',(req,res)=>{
 });
 
 app.post('/addproducto',(req,res)=>{
-    const sql = 'INSERT INTO mydb.producto SET ?';
-
-    const productoObj= { 
+    try {
+        const sql = 'INSERT INTO mydb.producto SET ?';
+        const productoObj= { 
         idproducto: req.body.idproducto,
         producto: req.body.producto,
         stock: req.body.stock,
@@ -333,11 +337,13 @@ app.post('/addproducto',(req,res)=>{
         cantidad: req.body.cantidad,
         vendedor_idvendedor: req.body.vendedor_idvendedor
     }
-
     db.query(sql,productoObj, err =>{
-        if(err) throw err;
+        console.log(err);
         res.send("Producto Creado");
     })
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.put('/updateproducto/:id',(req,res)=>{
