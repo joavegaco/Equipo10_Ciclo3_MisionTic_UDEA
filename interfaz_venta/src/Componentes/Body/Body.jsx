@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Body.css'
 import { Modal, Button, Form } from 'react-bootstrap';
-import { MultiSelect } from "react-multi-select-component";
+import '../../../node_modules/@progress/kendo-theme-default/dist/all.css';
+import { MultiSelect } from '../../../node_modules/@progress/kendo-react-dropdowns';
 
 
 function Body() {
     let productos = [];
+    const [listCant, setListCant] = useState([]);
     const [listProducto, setListProducto] = useState([]);
     const [show1, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -13,8 +15,13 @@ function Body() {
     const handleShow = () => setShow(true);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
-    const [value, setValue] = useState([]);
     const [selected, setSelected] = useState([]);
+    const [value, setValue] = useState([]);
+
+    const onChange = (event) => {
+        setValue([...event.value]);
+    };
+
 
     const getProducts = async () => {
         try {
@@ -34,6 +41,13 @@ function Body() {
         getProducts();
     }, [])
 
+    const listCantidades = value.map((val) => {
+        <>
+            <label class="form-label">Ingrese Cantidad de {val}</label>
+            <input class="form-control" id="example"></input>
+        </>
+    })
+
     return (
         <div className="container-fluid bg-secondary text-white">
             <div className="description">
@@ -41,17 +55,16 @@ function Body() {
             </div>
             <div className="row row-cols-2">
                 <div className="col-xxl-6">
-                    <div text-white>
-                        <MultiSelect
-                            options={listProducto}
-                            value={selected}
-                            onChange={setSelected}
-                            labelledBy="Select"
-                        />
+                    <div className="example-wrapper">
+                        <div>
+                            <div>Productos</div>
+                            <MultiSelect data={listProducto} onChange={onChange} value={value} />
+                        </div>
                     </div>
                 </div>
                 <div className="col-xxl-6">
-                    <textarea class="form-control" id="floatingTextarea" value={selected}></textarea>
+                    <div>Productos Seleccionados</div>
+                    <textarea class="form-control" id="floatingTextarea" value={value}></textarea>
                 </div>
                 <div className="col-xxl-6">
                     Fecha Inicial
