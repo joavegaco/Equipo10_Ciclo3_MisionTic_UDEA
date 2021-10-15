@@ -13,6 +13,11 @@ app.use(cors({ origin: true }));
 
 app.get("/get-users", async (request, response) => {
   const [rows, fields] = await connection.execute("SELECT * FROM contrasenya");
+  response.json({ data: rows });
+})
+
+app.get("/get-register", async (request, response) => {
+  const [rows, fields] = await connection.execute("SELECT * FROM gestionusuarios");
   console.log({ data: rows })
   response.json({ data: rows });
 })

@@ -1,8 +1,73 @@
-import React, { Fragment } from "react";
-
+import React, {useState, useEffect, Fragment}  from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function RegisterPage() {
+
+  const [datos, setUser] = useState([]);
+  const [validUser, setValidUser] = useState(false);
+  const {contrasenya, isAuthenticated} = useAuth0();
+
+  const getUser = async () => {
+      try {
+          const response = await fetch("http://localhost:5000/get-register");
+          const jsonResponse = await response.json();
+          const responseUser = jsonResponse.data;
+          const listUser = responseUser.map((gestionusuarios) =>
+              <tr>
+                  <th scope="row">{gestionusuarios.IDUsuarios}</th>
+                  <td>{gestionusuarios.direccion}</td>
+                  <td>{gestionusuarios.ciudad}</td>
+                  <td>{gestionusuarios.telefono}</td>
+                  <td>{gestionusuarios.telefono}</td>
+                  
+              </tr>
+          );
+          setUser(listUser)
+      }
+      catch (error) {
+          console.log(error)
+      }
+
+  }
+
+  const validateUserRole = async() =>{
+    const response = await fetch(`http://localhost:5000/get-user?email=${contrasenya.email}`);
+    const jsonResponse = await response.json();
+    return jsonResponse;
+}
+
+const grantAccess = async () => {
+
+    let userData;
+    if (isAuthenticated) {
+        userData = await validateUserRole();
+    }
+    else {
+        setValidUser(false);
+        return;
+    }
+
+    if (userData) {
+        if (userData.role !== "invited") {
+            setValidUser(true);
+            localStorage.setItem("state",userData.role);
+            await getUser();
+        }
+        else {
+            localStorage.setItem("state",userData.role);
+            setValidUser(false);
+        }
+    }
+    else {
+        setValidUser(false);
+    }
+}
+
+
+useEffect(()=>{
+    grantAccess();
+},[isAuthenticated, validUser]);
 
     return (<Fragment>     
   <div className="card-body text-white bg-secondary">

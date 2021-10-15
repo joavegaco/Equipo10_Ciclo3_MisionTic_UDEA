@@ -6,7 +6,8 @@ function HomePage() {
     
     const [usuarios, setUser] = useState([]);
     const [validUser, setValidUser] = useState(false);
-    const {contrasenya, isAuthenticated} = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
+    const { loginWithRedirect } = useAuth0();
 
     const getUser = async () => {
         try {
@@ -32,7 +33,7 @@ function HomePage() {
     
 
     const validateUserRole = async() =>{
-        const response = await fetch(`http://localhost:5000/get-user?email=${contrasenya.email}`);
+        const response = await fetch(`http://localhost:5000/get-user?email=${user.email}`);
         const jsonResponse = await response.json();
         return jsonResponse;
     }
@@ -44,6 +45,9 @@ function HomePage() {
             userData = await validateUserRole();
         }
         else {
+            if(!verifySession()){
+                loginWithRedirect();
+            }
             setValidUser(false);
             return;
         }
@@ -64,7 +68,15 @@ function HomePage() {
         }
     }
 
-
+    const verifySession = () =>{
+        const cookies = document.cookie;
+        let state = false;
+        if(cookies.includes('auth0')){
+            state= true;
+        }
+        return state;
+        
+    }
     useEffect(()=>{
         grantAccess();
     },[isAuthenticated, validUser]);
