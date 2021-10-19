@@ -306,7 +306,7 @@ app.get('/precio/:id',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json(results)
+            res.json({data11: results})
         } else {
             res.send('Not result');
         }
@@ -319,7 +319,7 @@ app.get('/cantidad/:id',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json(results)
+            res.json({data12: results})
         } else {
             res.send('Not result');
         }
@@ -372,7 +372,7 @@ app.get('/totalventa',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json({data11: results})
+            res.json({data13: results})
         } else {
             res.send('Not result');
         }
@@ -385,7 +385,7 @@ app.get('/totalventa/:id',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json({data12: results})
+            res.json({data14: results})
         } else {
             res.send('Not result');
         }
@@ -433,7 +433,7 @@ app.get('/vendedores',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json({data13: results})
+            res.json({data15: results})
         } else {
             res.send('Not result');
         }
@@ -446,7 +446,7 @@ app.get('/vendedores/:id',(req,res)=>{
     db.query(sql, (err,results)=>{
         if (err) throw err;
         if (results.length>0){
-            res.json({data14: results})
+            res.json({data16: results})
         } else {
             res.send('Not result');
         }
