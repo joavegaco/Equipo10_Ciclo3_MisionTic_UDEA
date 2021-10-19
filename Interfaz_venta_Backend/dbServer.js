@@ -7,6 +7,9 @@ const app = express();
 
 app.use(bodyParser.json())
 app.use(cors({origin: true}))
+
+app.set('port', process.env.PORT || port)
+
 const db = mysql.createPool({
    connectionLimit: 100,
    host: "localhost",       //This is your localhost IP
@@ -492,6 +495,6 @@ db.getConnection( (err, connection)=> {
    console.log ("DB connected successful: " + connection.threadId)
 })
 
-app.listen(port, 
+app.listen(app.get('port'), 
     ()=> console.log(`Server Started on port ${port}...`))
 
