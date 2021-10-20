@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { Modal, Button, Form } from 'react-bootstrap';
 import "../Filtro_Venta/Filtro_Venta"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 export default function Modal_Mod_Adm() {
@@ -11,13 +12,14 @@ export default function Modal_Mod_Adm() {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
     const [productos, setProductos] = useState([]);
+    const { isAuthenticated } = useAuth0();
 
     const getProducts = async () => {
         try {
             const response = await fetch("http://localhost:3001/productos/1");
             const jsonResponse = await response.json();
-            const productoid=jsonResponse.data10;
-            const listProductid= productoid.map((product) => {
+            const productoid = jsonResponse.data10;
+            const listProductid = productoid.map((product) => {
                 return product.producto
             });
             setProductos(listProductid)
@@ -80,82 +82,85 @@ export default function Modal_Mod_Adm() {
                                                                 <div className="p-3 border bg-light"><strong>Total Venta: </strong><a>$ Valor</a></div>
                                                             </div>
                                                         </div>
-                                                        <Button className="btn btn-dark m-2" onClick={handleShow}>
-                                                            Modificar Venta
-                                                        </Button>
+                                                        {isAuthenticated ?
+                                                        <div className="container-fluid">
+                                                            <Button className="btn btn-dark m-2" onClick={handleShow}>
+                                                                Modificar Venta
+                                                            </Button>
 
-                                                        <Modal show={show1} onHide={handleClose}>
-                                                            <Modal.Header closeButton>
-                                                                <Modal.Title>Modificar Venta</Modal.Title>
-                                                            </Modal.Header>
-                                                            <Modal.Body>
-                                                                <Form>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Producto</Form.Label>
-                                                                        <Form.Control type="product" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Fecha Inicial</Form.Label>
-                                                                        <Form.Control type="datei" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Fecha Del Pago</Form.Label>
-                                                                        <Form.Control type="datef" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Vendedor</Form.Label>
-                                                                        <Form.Control type="seller" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Mercado</Form.Label>
-                                                                        <Form.Control type="market" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Documento Del Cliente</Form.Label>
-                                                                        <Form.Control type="documentc" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Nombre Del Cliente</Form.Label>
-                                                                        <Form.Control type="nombrec" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Estado</Form.Label>
-                                                                        <Form.Control type="state" />
-                                                                    </Form.Group>
-                                                                    <Form.Group className="mb-3">
-                                                                        <Form.Label>Total Venta</Form.Label>
-                                                                        <Form.Control type="total" />
-                                                                    </Form.Group>
-                                                                </Form>
-                                                            </Modal.Body>
-                                                            <Modal.Footer>
-                                                                <Button className="bg-dark" variant="primary" onClick={handleClose}>
-                                                                    Cancelar
-                                                                </Button>
-                                                                <Button className="bg-dark" variant="primary" onClick={handleClose}>
-                                                                    OK
-                                                                </Button>
-                                                            </Modal.Footer>
-                                                        </Modal>
+                                                            <Modal show={show1} onHide={handleClose}>
+                                                                <Modal.Header closeButton>
+                                                                    <Modal.Title>Modificar Venta</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                    <Form>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Producto</Form.Label>
+                                                                            <Form.Control type="product" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Fecha Inicial</Form.Label>
+                                                                            <Form.Control type="datei" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Fecha Del Pago</Form.Label>
+                                                                            <Form.Control type="datef" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Vendedor</Form.Label>
+                                                                            <Form.Control type="seller" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Mercado</Form.Label>
+                                                                            <Form.Control type="market" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Documento Del Cliente</Form.Label>
+                                                                            <Form.Control type="documentc" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Nombre Del Cliente</Form.Label>
+                                                                            <Form.Control type="nombrec" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Estado</Form.Label>
+                                                                            <Form.Control type="state" />
+                                                                        </Form.Group>
+                                                                        <Form.Group className="mb-3">
+                                                                            <Form.Label>Total Venta</Form.Label>
+                                                                            <Form.Control type="total" />
+                                                                        </Form.Group>
+                                                                    </Form>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <Button className="bg-dark" variant="primary" onClick={handleClose}>
+                                                                        Cancelar
+                                                                    </Button>
+                                                                    <Button className="bg-dark" variant="primary" onClick={handleClose}>
+                                                                        OK
+                                                                    </Button>
+                                                                </Modal.Footer>
+                                                            </Modal>
 
-                                                        <Button className="btn btn-danger m-2" onClick={handleShow2}>
-                                                            Eliminar
-                                                        </Button>
+                                                            <Button className="btn btn-danger m-2" onClick={handleShow2}>
+                                                                Eliminar
+                                                            </Button>
 
-                                                        <Modal show={show2} onHide={handleClose2}>
-                                                            <Modal.Header closeButton>
-                                                                <Modal.Title>Eliminar Producto</Modal.Title>
-                                                            </Modal.Header>
-                                                            <Modal.Body>¿Seguro de que quieres <strong>Eliminar</strong> La Venta?</Modal.Body>
-                                                            <Modal.Footer>
-                                                                <Button variant="secondary" onClick={handleClose2}>
-                                                                    Cancelar
-                                                                </Button>
-                                                                <Button className="bg-danger" variant="primary" onClick={handleClose2}>
-                                                                    OK
-                                                                </Button>
-                                                            </Modal.Footer>
-                                                        </Modal>
+                                                            <Modal show={show2} onHide={handleClose2}>
+                                                                <Modal.Header closeButton>
+                                                                    <Modal.Title>Eliminar Producto</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>¿Seguro de que quieres <strong>Eliminar</strong> La Venta?</Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <Button variant="secondary" onClick={handleClose2}>
+                                                                        Cancelar
+                                                                    </Button>
+                                                                    <Button className="bg-danger" variant="primary" onClick={handleClose2}>
+                                                                        OK
+                                                                    </Button>
+                                                                </Modal.Footer>
+                                                            </Modal>
+                                                        </div>:null}
                                                     </div>
                                                 </div>
                                             </td>
